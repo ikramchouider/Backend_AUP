@@ -16,6 +16,7 @@ async def create_consumer(consumer: ConsumerCreate):
     hashed_password = hash_password(consumer.password)
     consumer_data = consumer.dict()
     consumer_data["password"] = hashed_password
+    consumer_data["total_points"] = 0
     result = await Consumer.insert_one(consumer_data)
     consumer_data["id"] = str(result.inserted_id)
     consumer_data.pop("password")

@@ -1,13 +1,12 @@
 import os
-from pymongo.mongo_client import MongoClient
-from pymongo.server_api import ServerApi
+from motor.motor_asyncio import AsyncIOMotorClient
 from dotenv import load_dotenv
 import logging
 
 load_dotenv()
 MONGO_URI = os.getenv("DATA_BASE")
 
-client = MongoClient(MONGO_URI, server_api=ServerApi('1'))
+client = AsyncIOMotorClient(MONGO_URI)
 
 database = client["RAMY_APP"]
 

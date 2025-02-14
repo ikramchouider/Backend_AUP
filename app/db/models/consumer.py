@@ -7,4 +7,4 @@ class Consumer(BaseModel):
     phone: str = Field(..., description="Phone number")
     email: EmailStr = Field(..., description="Email address")
     password: str = Field(..., description="Hashed password")
-    total_points: int = Field(..., description="Total number of points")
+    total_points: int = Field(0, description="Total number of points")
